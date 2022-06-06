@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet"
+		th:href="@{https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css}">
+	<link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css}">
+	<title th:text="Crud"> </title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="css/estylos.css">
+</head>
+
+<body style="background: rgb(0, 255, 64);">
+
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand " href="#">Crud</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				< <li class="nav-item active"><a class="nav-link" th:href="@{/form}">Gestion Personal</a></li>
+					
+
+					<li class="nav-item active"><a class="nav-link" th:href="@{/login}">login</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="jumbotron jumbotron-fluid ">
+		<div style="background: rgb(0, 255, 64);" class="container">
+			<h1 class="display-4"></h1>
+
+			<center>
+			
+			<div class="letra">
+			<h1> Parcial Tercer Corte </h1>
+			</div>
+			</center>
+
+			<p class="lead">.</p>
+		</div>
+	</div>
+
+
+	</div>
+
+	<div class="p-3 mb-2 bg-gradient-primary text-white"></div>
+
+
+
+
+	<div id="demo" class="carousel slide" data-ride="carousel">
+
+		<!-- Indicators -->
+		<ul class="carousel-indicators">
+			<li data-target="#demo" data-slide-to="0" class="active"></li>
+			<li data-target="#demo" data-slide-to="1"></li>
+			<li data-target="#demo" data-slide-to="2"></li>
+			<li data-target="#demo" data-slide-to="3"></li>
+		</ul>
+
+		<center>
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					< <img src="../static/images/11.png" width="800" height="500" th:src="@{images/11.png}" />
+
+				</div>
+				<div class="carousel-item">
+					< <img src="../static/images/22.jpg" width="800" height="500" th:src="@{images/22.jpg}" />
+				</div>
+				<div class="carousel-item">
+					< <img src="../static/images/33.jpg" width="800" height="500"
+						th:src="@{images/33.jpg}" />
+				</div>
+				<div class="carousel-item">
+					< <img src="../static/images/44.png" width="800" height="500" th:src="@{images/44.png}" />
+				</div>
+
+		</center>
+		<br>
+		<br>
+		<br>
+		<div class="row">
+			<div class="col-12">
+			
+
+				<n>
+					<form style="float:center;">
+						<center>
+							<div id="titulo">
+								<h1><span class="badge badge-dark">Pincha en la imagen para ir al registro</span></h1>
+							</div>
+						
+						<a th:href="@{/form}"><button name="actualizar" type="button" class="btn">
+								<img src="../static/images/gestion.png" width="500" height="300"
+									th:src="@{images/gestion.png}" /></button></a>
+									</center>
+									<br>
+		<br>
+		<br>
+		<br>
+					</form>
+			</div>
+			
+
+
+		<div class="contactenos d-flex justify-content-center align-items-center container-fluid bg-white py-4" 
+			id="contactenos" style="min-height: 100vh !important;">
+			<div class="container text-center">
+				<h1 class="py-sm-4 font-weight-light Active">CONTÁCTENOS</h1>
+				<img th:src="@{images/enviaremail.png}" width="500" height="300" />
+				<form th:action="@{/sendMail}" method="POST">
+					<div class="input-group input-group-lg">
+						<input type="text" class="form-control mb-3 mr-2 form-control-lg border border-dark"
+							name="nombre" placeholder="Nombre">
+						<input type="text" class="form-control mb-3 ml-2 form-control-lg  border border-dark"
+							name="apellido" placeholder="Apellido">
+					</div>
+					<div class="input-group input-group-lg">
+						<input type="text" class="form-control mb-3 mr-2 form-control-lg  border border-dark"
+							name="telefono" placeholder="Telefono">
+						<input type="text" class="form-control mb-3 ml-2 form-control-lg  border border-dark"
+							name="correo" placeholder="Correo Electrónico">
+					</div>
+					<textarea class="form-control  border border-dark" rows="6" name="mensaje"
+						placeholder="Escribe aquí tu mensaje"></textarea>
+
+					<button type="submit" class="btn btn-success my-4 btn-lg py-3 text-uppercase">enviar<img
+							th:src="@{images/email2.png}" /></button>
+				</form>
+			</div>
+		</div>
+</body>
+
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js}"></script>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js}"></script>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js}"></script>
+
+
+</html>

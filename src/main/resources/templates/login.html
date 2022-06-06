@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css}">
+<link rel="stylesheet" th:href="@{assets/css/style.css}">
+<title th:text="${titulo}"> Formulario Empleado  </title>
+</head>
+<body style="background: rgb(0, 255, 64);" >
+
+<form class="form-inline">
+  <div class="form-group">
+    <label for="inputPassword6">Password</label>
+    <input type="password" id="inputPassword6" class="form-control mx-sm-3" aria-describedby="passwordHelpInline">
+    <small id="passwordHelpInline" class="text-muted">
+      Must be 8-20 characters long.
+    </small>
+  </div>
+</form>
+
+                
+                <form th:action="@{/inicio}" method="POST">
+            
+
+        <img src="images/segu.png" >
+</center>
+           
+                    <div class="form-group">
+    <label for="email">Email</label>
+                       
+                        <input type="text" class=" form-control mb-3 mr-2 form-control-lg form-control-lg border border-dark" name="username" value="" placeholder="Número de empleado" autofocus="">                                        
+                    </div>
+                    <br>
+                    
+                     <label for="password">Contraseña</label>
+                       
+                        <input type="password" class=" form-control mb-3 mr-2 form-control-lg form-control-lg border border-dark" name="password" value="" placeholder="Número de empleado" autofocus="">                                        
+
+      Must be 8-20 characters long.
+  <form class="form-inline">
+  <div class="form-group">
+    <label for="inputPassword6">Password</label>
+    <input type="password" id="inputPassword6" class="form-control mx-sm-3" aria-describedby="passwordHelpInline">
+    <small id="passwordHelpInline" class="text-muted">
+      Must be 8-20 characters long.
+    </small>
+
+                                                                          
+                    <center>
+                        <button type="submit" href="/inicio" class="btn btn-success">Inciar sesion<img  th:src="@{images/add.png}" /></button>
+                    </center>
+                    </div>
+                </form>     
+            </div>                     
+        </div>  
+    </div>
+</div>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet"
+		th:href="@{https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css}">
+	<link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css}">
+	<link rel="stylesheet" th:href="@{css/stylos.css}">
+	<title th:text="${titulo}"> Formulario </title>
+</head>
+
+<body style="background: rgb(0, 255, 64);">
+
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">Inyectintas</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item active"><a class="nav-link" th:href="@{/inicio}">Home</a></li>
+				<li class="nav-item active"><a class="nav-link" th:href="@{/listar}">Empleados</a></li>
+
+				<li class="nav-item active"><a class="nav-link" th:href="@{/login}">login</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="jumbotron">
+			<h1 class="display-4"></h1>
+			<p class="lead"></p>
+
+			<h1 th:text="${titulo}"></h1>
+			<center>
+				<br>
+				<img th:src="@{images/registrar.png}" width="800" height="500" />
+			</center>
+			<br>
+			<hr class="my-4">
+
+
+			<div th:object="${cliente}" th:remove="tag">
+				<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
+					<li th:each="err: ${#fields.errors('*')}" th:text="${err}"></li>
+				</ul>
+			</div>
+			<form th:action="@{/form}" th:object="${cliente}" method="post" enctype="multipart/form-data">
+
+
+
+				<div class="form-row">
+					<div class="col">
+						<label for="name">Nombre:</label>
+
+						<input type="text"
+							class="form-control mb-3 mr-2 form-control-lg form-control-lg border border-dark "
+							placeholder="Registre su Nombre" th:field="*{nombre}"
+							th:errorclass="'forms-control alert-danger'" />
+						<small class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}"
+							th:errors="*{nombre}"></small>
+					</div>
+					<div class="col">
+
+						<label for="Apellido">Apellido:</label>
+						<input type="text" class="form-control mb-3 mr-2 form-control-lg border border-dark"
+							placeholder="Registre su Apellido" th:field="*{apellido}"
+							th:errorclass="'forms-control alert-danger'" />
+						<small class="form-text text-danger" th:if="${#fields.hasErrors('apellido')}"
+							th:errors="*{apellido}"></small>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="correo">Correo:</label>
+					<input type="text"
+						class="form-control mb-3 mr-2 form-control-lg  form-control-lg border border-dark "
+						placeholder="Registre su Correo" th:field="*{mail}"
+						th:errorclass="'forms-control alert-danger'" />
+					<small class="form-text text-danger" th:if="${#fields.hasErrors('mail')}"
+						th:errors="*{mail}"></small>
+				</div>
+
+				<div class="form-group">
+					<label for="fecha">Fecha:</label>
+					<input type="date"
+						class="form-control mb-3 mr-2 form-control-lg form-control-lg border border-dark "
+						placeholder="Fecha" th:field="*{fecha}" th:errorclass="'forms-control alert-danger'" />
+					<small class="form-text text-danger" th:if="${#fields.hasErrors('fecha')}"
+						th:errors="*{fecha}"></small>
+				</div>
+				<div class="form-group">
+					<label for="certificado">Documento:</label>
+					<input type="text"
+						class="form-control mb-3 mr-2 form-control-lg  form-control-lg border border-dark "
+						placeholder="Registre su Documento" th:field="*{certificado}"
+						th:errorclass="'forms-control alert-danger'" />
+					<small class="form-text text-danger" th:if="${#fields.hasErrors('certificado')}"
+						th:errors="*{certificado}"></small>
+				</div>
+				<div class="form-group">
+					<label for="estudios">Estudios:</label>
+					<input type="text"
+						class="form-control mb-3 mr-2 form-control-lg  form-control-lg border border-dark "
+						placeholder="Registre su Estudios" th:field="*{estudios}"
+						th:errorclass="'forms-control alert-danger'" />
+					<small class="form-text text-danger" th:if="${#fields.hasErrors('estudios')}"
+						th:errors="*{estudios}"></small>
+				</div>
+
+				<div class="form-group">
+					<label for="imagen">Imagen:</label>
+					<input type="file" name="file" id="imagen"
+						class="form-control mb-3 mr-2 form-control-lg  form-control-lg border border-dark ">
+				</div>
+
+				<br>
+				<center>
+
+
+					<button type="submit" class="btn btn-success">Add<img th:src="@{images/add_persona.png}" /></button>
+					
+					<a Class="btn btn-primary" style="float: right;" th:href="@{/listar}"> Mostrar Registro</a>
+				</center>
+				<input type="hidden" th:field="*{id}" />
+
+		
+			</form>
+
+		</div>
+		<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js}"></script>
+		<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js}"></script>
+		<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js}"></script>
+</body>
+
+</html>
